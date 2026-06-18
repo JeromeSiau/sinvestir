@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blue-night: #00173f;
+  --color-blue-deep: #000519;
+  --color-blue-panel: #071226;
+  --color-blue-line: #1a3156;
+  --color-blue-light: #7899ce;
+  --color-blue-sky: #1098f7;
+  --color-violet-blue: #0049c6;
+  --color-yellow: #f8d047;
+  --font-sans: var(--font-lexend);
+  --font-display: var(--font-jakarta);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: #fff;
+  background: #000519;
+  font-family: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar-muted-link {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-muted-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-width-transition {
+  transition-property: width;
+  transition-duration: 120ms;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: width;
+}
+
+.sidebar-panel-background {
+  background-color: #0b0f1a;
+  background-image: radial-gradient(228.26% 65.64% at 100% 2.53%, rgb(255 255 255 / 10%) 0%, rgb(16 27 68 / 10%) 100%);
+}
+
+.sidebar-icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-icon-sm,
+.sidebar-icon-sm svg {
+  width: 16px;
+  height: 16px;
+  flex-basis: 16px;
+}
+
+.sidebar-label {
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 90ms ease-out, transform 90ms ease-out;
+}
+
+.sidebar-label-hidden {
+  opacity: 0;
+  transform: translateX(-4px);
+}
+
+.sidebar-label-collapsed {
+  max-width: 0;
+}
+
+.chart-range-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  appearance: none;
+  pointer-events: none;
+  background: transparent;
+}
+
+.chart-range-input::-webkit-slider-runnable-track {
+  height: 24px;
+  background: transparent;
+}
+
+.chart-range-input::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  appearance: none;
+  cursor: ew-resize;
+  pointer-events: auto;
+  border: 3px solid #071226;
+  border-radius: 999px;
+  background: #1098f7;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 20%), 0 8px 22px rgb(16 152 247 / 30%);
+}
+
+.chart-range-input::-moz-range-track {
+  height: 24px;
+  background: transparent;
+}
+
+.chart-range-input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  cursor: ew-resize;
+  pointer-events: auto;
+  border: 3px solid #071226;
+  border-radius: 999px;
+  background: #1098f7;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 20%), 0 8px 22px rgb(16 152 247 / 30%);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.45;
+}
