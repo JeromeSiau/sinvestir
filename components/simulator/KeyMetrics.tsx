@@ -1,8 +1,10 @@
-import { BadgeEuro, CircleDollarSign, Coins, Percent, PiggyBank } from "lucide-react";
+import { BadgeEuro, Coins, Percent, PiggyBank } from "lucide-react";
 
 import { formatCurrency, formatNumber, formatPercent } from "../../lib/formatters";
 import type { SimulationResult } from "../../lib/simulation";
+import { CapitalResultCard } from "./CapitalResultCard";
 import { ResultCard } from "./ResultCard";
+import { ResultsNarrative } from "./ResultsNarrative";
 
 type KeyMetricsProps = {
   assetSymbol: string;
@@ -12,6 +14,12 @@ type KeyMetricsProps = {
 export function KeyMetrics({ assetSymbol, simulation }: KeyMetricsProps) {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+      <CapitalResultCard simulation={simulation} />
+      <ResultCard
+        icon={<Percent size={16} />}
+        label="Performance"
+        value={simulation ? `${formatPercent(simulation.performance)} %` : "—"}
+      />
       <ResultCard
         icon={<PiggyBank size={16} />}
         label="Investi"
@@ -27,16 +35,7 @@ export function KeyMetrics({ assetSymbol, simulation }: KeyMetricsProps) {
         label="Prix moyen d'acquisition"
         value={simulation ? formatCurrency(simulation.averagePrice) : "—"}
       />
-      <ResultCard
-        icon={<CircleDollarSign size={16} />}
-        label="Capital final"
-        value={simulation ? formatCurrency(simulation.finalValue) : "—"}
-      />
-      <ResultCard
-        icon={<Percent size={16} />}
-        label="Performance"
-        value={simulation ? `${formatPercent(simulation.performance)} %` : "—"}
-      />
+      <ResultsNarrative assetSymbol={assetSymbol} simulation={simulation} />
     </div>
   );
 }

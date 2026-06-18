@@ -150,8 +150,8 @@ export function CryptoSimulator({ compact = false }: SimulatorProps) {
 
   return (
     <div className={compact ? "max-w-6xl space-y-10" : "space-y-10"}>
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-5">
-        <section className="flex flex-col justify-between gap-8 md:col-span-2">
+      <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-5">
+        <section className="flex flex-col gap-8 md:col-span-2">
           {!compact ? (
             <h3 className="border-l-2 border-blue-sky px-4 py-0.5 text-2xl font-normal text-white">
               Simulation
@@ -172,7 +172,7 @@ export function CryptoSimulator({ compact = false }: SimulatorProps) {
           />
         </section>
 
-        <section className="space-y-8 md:col-span-3">
+        <section className="space-y-6 md:col-span-3">
           {!compact ? (
             <div className="flex items-center justify-between gap-4">
               <h3 className="border-l-2 border-blue-sky px-4 py-0.5 text-2xl font-normal text-white">Chiffres clés</h3>

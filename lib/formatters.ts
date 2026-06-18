@@ -6,6 +6,13 @@ export function formatCurrency(value: number, decimals = 2) {
   }).format(value);
 }
 
+export function formatEuroAmount(value: number, decimals = 2) {
+  return new Intl.NumberFormat("fr-FR", {
+    maximumFractionDigits: decimals,
+    minimumFractionDigits: decimals,
+  }).format(value);
+}
+
 export function formatCompactCurrency(value: number) {
   return new Intl.NumberFormat("fr-FR", {
     notation: "compact",
